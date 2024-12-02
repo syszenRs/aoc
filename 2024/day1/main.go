@@ -2,9 +2,7 @@ package main
 
 import (
 	"aoc/utils"
-	"bufio"
 	"fmt"
-	"os"
 	"slices"
 	"strconv"
 	"strings"
@@ -19,24 +17,17 @@ type pair struct {
 
 func main() {
 	mainStart := time.Now()
-	file, err := os.Open("day/day1-input.txt")
+	lines := utils.GetFileContent("2024/day1/input.txt")
 
-	if err != nil {
-		panic(err)
-	}
-
-	defer file.Close()
 	defer func() {
 		fmt.Printf("\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
 	}()
 
-	scanner := bufio.NewScanner(file)
-
 	leftArray := []int{}
 	rightArray := []int{}
 
-	for scanner.Scan() {
-		split := strings.Split(scanner.Text(), "   ")
+	for _, line := range lines {
+		split := strings.Split(line, "   ")
 		num1, _ := strconv.Atoi(split[0])
 		num2, _ := strconv.Atoi(split[1])
 
