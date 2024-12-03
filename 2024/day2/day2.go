@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"aoc/2024/utils"
@@ -6,16 +6,12 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-	"time"
 )
 
-func main() {
-	mainStart := time.Now()
-	lines := utils.GetFileContent("2024/day2/input.txt")
+type Day2 struct{}
 
-	defer func() {
-		fmt.Printf("\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
-	}()
+func (d Day2) Run() {
+	lines := utils.GetFileContent("2024/day2/input.txt")
 
 	count, countDamp := 0, 0
 

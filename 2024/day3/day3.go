@@ -1,4 +1,4 @@
-package main
+package day3
 
 import (
 	"aoc/2024/utils"
@@ -6,27 +6,22 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-	"time"
 )
+
+type Day3 struct{}
 
 const FILE_PATH = "2024/day3/input.txt"
 
 var REGEXP1 = regexp.MustCompile(`mul\(\d{1,3},\d{1,3}\)`)
 var REGEXP2 = regexp.MustCompile(`(?s)don't\(\).*?(?:do\(\)|$)`)
 
-func main() {
-	mainStart := time.Now()
-	lines := utils.GetFileContent(FILE_PATH)
-
-	defer func() {
-		fmt.Printf("\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
-	}()
-
-	fmt.Println("total sum of mult is ", countMult(lines))
-	fmt.Println("total sum of do's mult is ", countDoMult(lines))
+func (d Day3) Run() {
+	RunPart1()
+	RunPart2()
 }
 
-func countMult(lines []string) int {
+func RunPart1() {
+	lines := utils.GetFileContent(FILE_PATH)
 	count := 0
 
 	for _, line := range lines {
@@ -41,10 +36,11 @@ func countMult(lines []string) int {
 		}
 	}
 
-	return count
+	fmt.Println("total sum of mult is ", count)
 }
 
-func countDoMult(lines []string) int {
+func RunPart2() {
+	lines := utils.GetFileContent(FILE_PATH)
 	count := 0
 
 	var fullString strings.Builder
@@ -64,5 +60,5 @@ func countDoMult(lines []string) int {
 		count += (num1 * num2)
 	}
 
-	return count
+	fmt.Println("total sum of do's mult is ", count)
 }

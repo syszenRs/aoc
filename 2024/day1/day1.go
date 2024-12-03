@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"aoc/2024/utils"
@@ -6,8 +6,9 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-	"time"
 )
+
+type Day1 struct{}
 
 type pair struct {
 	sum        int
@@ -15,13 +16,8 @@ type pair struct {
 	similarity int
 }
 
-func main() {
-	mainStart := time.Now()
+func (d Day1) Run() {
 	lines := utils.GetFileContent("2024/day1/input.txt")
-
-	defer func() {
-		fmt.Printf("\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
-	}()
 
 	leftArray := []int{}
 	rightArray := []int{}
@@ -38,14 +34,9 @@ func main() {
 	slices.Sort(leftArray)
 	slices.Sort(rightArray)
 
-	fmt.Println("--------- RUNNING DAY 1 ---------")
-
-	start := time.Now()
 	result := pairUp(leftArray, rightArray)
-	fmt.Printf("Time consumed by pairUp: %.7fs\n", time.Since(start).Seconds())
 
 	distance := findTotalOfValue(result, func(p pair) int { return p.distance })
-
 	fmt.Printf("Total distance between: %d\n", distance)
 
 	similarity := findTotalOfValue(result, func(p pair) int { return p.similarity })
