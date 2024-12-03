@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc/utils"
+	"aoc/2024/utils"
 	"fmt"
 	"slices"
 	"strconv"
