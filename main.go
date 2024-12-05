@@ -4,6 +4,7 @@ import (
 	"aoc/2024/day1"
 	"aoc/2024/day2"
 	"aoc/2024/day3"
+	"aoc/2024/day4"
 	"aoc/2024/utils"
 	"fmt"
 	"os"
@@ -12,9 +13,10 @@ import (
 )
 
 var dayFunc = map[int]utils.DayInterface{
-	1: day1.Day1{},
-	2: day2.Day2{},
-	3: day3.Day3{},
+	1: day1.Day{},
+	2: day2.Day{},
+	3: day3.Day{},
+	4: day4.Day{},
 }
 
 var DAYS_COMPLETED = len(dayFunc)
@@ -48,7 +50,7 @@ func main() {
 	mainStart := time.Now()
 
 	defer func() {
-		fmt.Printf("\nPuzzle run finished!\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
+		fmt.Printf("\n\nPuzzle run finished!\nTotal time run -- %.7fs\n", time.Since(mainStart).Seconds())
 	}()
 
 	fmt.Printf("\nRunning day %d puzzle\n", daySelected)
@@ -57,5 +59,5 @@ func main() {
 }
 
 func isValidDaySelected(day int) bool {
-	return day >= DAYS_COMPLETED && day <= DAYS_COMPLETED
+	return day >= 1 && day <= DAYS_COMPLETED
 }

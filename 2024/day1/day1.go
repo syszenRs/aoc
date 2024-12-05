@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-type Day1 struct{}
+type Day struct{}
 
 type pair struct {
 	sum        int
@@ -16,7 +16,7 @@ type pair struct {
 	similarity int
 }
 
-func (d Day1) Run() {
+func (d Day) Run() {
 	lines := utils.GetFileContent("2024/day1/input.txt")
 
 	leftArray := []int{}
@@ -37,10 +37,10 @@ func (d Day1) Run() {
 	result := pairUp(leftArray, rightArray)
 
 	distance := findTotalOfValue(result, func(p pair) int { return p.distance })
-	fmt.Printf("Total distance between: %d\n", distance)
+	fmt.Printf("Part 1 - Total distance between: %d\n", distance)
 
 	similarity := findTotalOfValue(result, func(p pair) int { return p.similarity })
-	fmt.Println("Similarity score:", similarity)
+	fmt.Println("Part 2 - Similarity score:", similarity)
 
 }
 

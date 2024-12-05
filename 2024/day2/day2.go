@@ -8,9 +8,9 @@ import (
 	"strings"
 )
 
-type Day2 struct{}
+type Day struct{}
 
-func (d Day2) Run() {
+func (d Day) Run() {
 	lines := utils.GetFileContent("2024/day2/input.txt")
 
 	count, countDamp := 0, 0
@@ -28,8 +28,8 @@ func (d Day2) Run() {
 
 	countDamp += count
 
-	fmt.Printf("Exists %d reports safe\n", count)
-	fmt.Printf("Exists %d reports safe with dampener\n", countDamp)
+	fmt.Printf("Part 1 - Exists %d reports safe\n", count)
+	fmt.Printf("Part 2 - Exists %d reports safe with dampener\n", countDamp)
 }
 
 func checkReportSafe(levels []string) bool {

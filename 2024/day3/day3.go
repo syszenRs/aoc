@@ -8,14 +8,14 @@ import (
 	"strings"
 )
 
-type Day3 struct{}
+type Day struct{}
 
 const FILE_PATH = "2024/day3/input.txt"
 
 var REGEXP1 = regexp.MustCompile(`mul\(\d{1,3},\d{1,3}\)`)
 var REGEXP2 = regexp.MustCompile(`(?s)don't\(\).*?(?:do\(\)|$)`)
 
-func (d Day3) Run() {
+func (d Day) Run() {
 	RunPart1()
 	RunPart2()
 }
@@ -36,7 +36,7 @@ func RunPart1() {
 		}
 	}
 
-	fmt.Println("total sum of mult is ", count)
+	fmt.Println("Part 1 - total sum of mult is ", count)
 }
 
 func RunPart2() {
@@ -60,5 +60,5 @@ func RunPart2() {
 		count += (num1 * num2)
 	}
 
-	fmt.Println("total sum of do's mult is ", count)
+	fmt.Println("Part 2 - total sum of do's mult is ", count)
 }
